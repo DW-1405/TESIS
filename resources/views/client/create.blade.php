@@ -12,6 +12,29 @@
 
               		<div class="row">
 	              		<div class="col-md-6">
+                            <div class="form-group row">
+			                	<label class="control-label col-md-3">Tipo de documento</label>
+			                	<div class="form-group col-md-8">
+
+			                		<select class="form-control" name="document_type_id" required>
+			                			@foreach ($document_type as $element)
+			                			<option value="{{$element->id}}">{{$element->document}}</option>
+			                			@endforeach
+			                		</select>
+			                	</div>
+			                </div>
+			                <div class="form-group row">
+				                <label class="control-label col-md-3">Número de documento</label>
+				                <div class="col-md-8">
+                                    <div class="input-group">
+                                        <input id="number_document" class="form-control" type="text" placeholder="Enter number document" name="number_document" required>
+                                        <span class="input-group-append"><a style="color:white" class="btn btn-primary" onclick="consultarDocumento()"><i class="fa fa-search"></i> <span
+                                                    id="entidad">Entidad</span></a></span>
+
+
+                                    </div>
+				                </div>
+			                </div>
 			                <div class="form-group row">
 			                    <label class="control-label col-md-3">Nombre</label>
 			                  	<div class="col-md-8">
@@ -27,46 +50,24 @@
 
 				                    <input class="form-control" type="text" placeholder="Enter lastnames" name="lastname" required>
 
-				            
+
 
 				                </div>
 			                </div>
-			                <div class="form-group row">
-			                	<label class="control-label col-md-3">Tipo de documento</label>
-			                	<div class="form-group col-md-8">
 
-			                		<select class="form-control" name="document_type_id" required>
-
-			                	
-
-			                			@foreach ($document_type as $element)
-			                			<option value="{{$element->id}}">{{$element->document}}</option>
-			                			@endforeach
-			                		</select>
-			                	</div>
-			                </div>
-			                <div class="form-group row">
-				                <label class="control-label col-md-3">Número de documento</label>
-				                <div class="col-md-8">
-
-				                    <input id="number_document" class="form-control" type="text" placeholder="Enter number document" name="number_document" required>
-
-				                </div>
-			                </div>	
-			              
-			            </div>    
+			            </div>
 		                <div class="col-md-6" >
-		                	
+
 			                <div class="form-group row">
 				                <label class="control-label col-md-3">Número de celular</label>
 				                <div class="col-md-8">
 
 				                    <input class="form-control" type="text" placeholder="Enter number telephone" name="telephone" required>
 
-				                    
+
 
 				                </div>
-			                </div>	                	
+			                </div>
 		                	<div class="form-group row">
 		                  		<label class="control-label col-md-3">Dirección</label>
 				                <div class="col-md-8">
@@ -75,7 +76,7 @@
 
 				                </div>
 		                	</div>
-			               
+
 			            </div>
 			        </div>
 					<div class="tile-footer">
@@ -90,7 +91,7 @@
                     </div>
               </form>
             </div>
-            
+
           </div>
         </div>
 </div>
