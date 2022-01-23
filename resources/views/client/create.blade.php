@@ -101,23 +101,8 @@
         var tipo_documento = $('#document_type_id option:selected').attr('description');
         var tipo_documento_id = $('#document_type_id').val();
         var documento = $('#number_document').val();
-        if (tipo_documento === "DNI") {
-            if (documento.length === 8) {
-                consultarAPI(tipo_documento, documento);
-            } else {
-                toastr.error('El DNI debe de contar con 8 dígitos', 'Error');
-                clearDatosPersona(false);
-            }
-        } else if (tipo_documento === "RUC") {
-            if (documento.length === 11) {
-                consultarAPI(tipo_documento, documento);
-            } else {
-                toastr.error('El RUC debe de contar con 11 dígitos', 'Error');
-                clearDatosPersona(false);
-            }
-        }
-
-        Consultamos nuestra BBDD
+       
+        // Consultamos nuestra BBDD
         $.ajax({
             dataType: 'json',
             type: 'post',
