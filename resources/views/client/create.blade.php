@@ -106,7 +106,7 @@
         $.ajax({
             dataType: 'json',
             type: 'post',
-            url: '',
+            url: "{{route('clienteGetClient')}}",
             data: {
                 '_token': $('input[name=_token]').val(),
                 'tipo_documento': tipo_documento_id,
@@ -114,6 +114,7 @@
                 'id': null
             }
         }).done(function(result) {
+            console.log(result);
             if (result.existe) {
                 toastr.error('El ' + tipo_documento + ' ingresado ya se encuentra registrado para un cliente',
                     'Error');

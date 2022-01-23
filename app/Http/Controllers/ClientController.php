@@ -135,4 +135,22 @@ class ClientController extends Controller
         Client::find($client->id)->delete();
         return redirect()->route('client');
     }
+
+    public function obtenerClient(Request $request)
+    {
+        
+        $cliente = Client::where("document_type_id",$request->tipo_documento)
+                    ->where("number_document",$request->documento)
+                    ->first();
+        
+        $existe=false;
+        if (!is_null($client)) 
+        {
+            $existe=true;
+        }
+
+        return response()->json([
+            "existe"=>$existe
+        ]);
+    }
 }

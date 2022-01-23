@@ -90,6 +90,7 @@ Route::post('clients/store', [App\Http\Controllers\ClientController::class, 'sto
 Route::get('clients/{client}', [App\Http\Controllers\ClientController::class, 'show'])->name('client.show');
 Route::post('clients/update/{client}', [App\Http\Controllers\ClientController::class, 'update'])->name('client.update');
 Route::delete('clients/destroy/{client}', [App\Http\Controllers\ClientController::class, 'destroy'])->name('client.destroy');
+Route::post('clients/obtener', [App\Http\Controllers\ClientController::class, 'obtenerClient'])->name('clienteGetClient');
 // update
 // destroy
 
