@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ParametroController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +23,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// ------------------------- 
+//Parametro
+Route::get('parametro/getApiruc/{ruc}', [ParametroController::class,'apiRuc'])->name('getApiruc');
+Route::get('parametro/getApidni/{dni}', [ParametroController::class,'apiDni'])->name('getApidni');
+
+// -------------------------
 // ### Route Employee
 // --------------------------
 Route::get('/employee', [App\Http\Controllers\EmployeeController::class, 'index'])->name('employee');
@@ -33,13 +39,13 @@ Route::get('employee/destroy/{employee}', [App\Http\Controllers\EmployeeControll
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route User
 // --------------------------
 Route::get('users/', [App\Http\Controllers\UserController::class, 'index'])->name('user');
 Route::get('users/profile/{id}', [App\Http\Controllers\UserController::class, 'show'])->name('user.profile');
 
-// ------------------------- 
+// -------------------------
 // ### Route Product
 // --------------------------
 Route::get('products/', [App\Http\Controllers\ProductController::class, 'index'])->name('product');
@@ -51,7 +57,7 @@ Route::delete('products/destroy/{product}', [App\Http\Controllers\ProductControl
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route Category
 // --------------------------
 Route::get('categorys', [App\Http\Controllers\ProductCategoryController::class, 'index'])->name('category');
@@ -63,7 +69,7 @@ Route::delete('categorys/destroy/{productCategory}', [App\Http\Controllers\Produ
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route Brand
 // --------------------------
 Route::get('brands', [App\Http\Controllers\BrandController::class, 'index'])->name('brand');
@@ -75,7 +81,7 @@ Route::delete('brands/destroy/{brand}', [App\Http\Controllers\BrandController::c
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route Client
 // --------------------------
 Route::get('clients/', [App\Http\Controllers\ClientController::class, 'index'])->name('client');
@@ -87,7 +93,7 @@ Route::delete('clients/destroy/{client}', [App\Http\Controllers\ClientController
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route Supplier
 // --------------------------
 Route::get('supplier/', [App\Http\Controllers\SupplierController::class, 'index'])->name('supplier');
@@ -99,7 +105,7 @@ Route::delete('suppliers/destroy/{supplier}', [App\Http\Controllers\SupplierCont
 // update
 // destroy
 
-// ------------------------- 
+// -------------------------
 // ### Route Sale
 // --------------------------
 Route::get('sale/', [App\Http\Controllers\SaleController::class, 'index'])->name('sale');
@@ -108,7 +114,7 @@ Route::post('sale/store', [App\Http\Controllers\SaleController::class, 'store'])
 Route::get('invoice/{sale}', [App\Http\Controllers\SaleController::class, 'show'])->name('invoice');
 Route::get('print/{sale}', [App\Http\Controllers\SaleController::class, 'print'])->name('print');
 
-// ------------------------- 
+// -------------------------
 // ### Route Order
 // --------------------------
 Route::get('order/', [App\Http\Controllers\OrderController::class, 'index'])->name('order');

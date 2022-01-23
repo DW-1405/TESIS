@@ -42,6 +42,9 @@
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"> </script>
     <script src="/js/login/login.js"></script>
+    <!-- SweetAlert -->
+    <script src="{{asset('SweetAlert/sweetalert2@10.js')}}"></script>
+    @yield('scripts')
 </body>
 
 </html>

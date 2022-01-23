@@ -19,7 +19,7 @@
             <p>"Comercial<span> Alex"</span></p>
         </a>
         <!-- Sidebar toggle button-->
-      
+
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
 
@@ -75,7 +75,7 @@
                     </span>
                 </a>
             </li>
-            @if ($user->workstation->work == "ADMINISTRADOR")          
+            @if ($user->workstation->work == "ADMINISTRADOR")
             <!-- usuarios -->
             <li class="treeview">
                 <a class="app-menu__item" href="#" data-toggle="treeview">
@@ -93,14 +93,14 @@
                         <a class="treeview-item" href="{{route('user')}}"><i class="icon fas fa-id-badge"></i>
                             {{__('Usuarios')}}
                         </a>
-                      
+
                     </li>
                 </ul>
             </li>
             @endif
-            
-            
-            @if ($user->workstation->work == "ADMINISTRADOR" || $user->workstation->work == "VENDEDOR")  
+
+
+            @if ($user->workstation->work == "ADMINISTRADOR" || $user->workstation->work == "VENDEDOR")
             <!-- clientes -->
             <li class="treeview">
                 <a class="app-menu__item" href="#" data-toggle="treeview">
@@ -124,7 +124,7 @@
                 </ul>
             </li>
             @endif
-            
+
             @if ($user->workstation->work == "ADMINISTRADOR" || $user->workstation->work == "VENDEDOR")
             <!-- ventas -->
 
@@ -208,7 +208,7 @@
                         Reportes
                     </span>
                 </a>
-            </li> 
+            </li>
         </ul>
     </aside>
     <main class="app-content">
@@ -224,12 +224,36 @@
 
         @yield('content')
     </main>
-    
+
     <script src="/js/jquery-3.3.1.min.js"></script>
     <script src="/js/popper.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/main.js"></script>
+    <!-- Toastr script -->
+    <script src="{{asset('Inspinia/js/plugins/toastr/toastr.min.js')}}"></script>
+    <!-- SweetAlert -->
+    <script src="{{asset('SweetAlert/sweetalert2@10.js')}}"></script>
     <!-- Essential javascripts for application to work-->
+    <script>
+        function consultaExitosa() {
+            // Swal.fire(
+            //     '¡Búsqueda Exitosa!',
+            //     'Datos ingresados.',
+            //     'success'
+            // )
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Búsqueda Exitosa!',
+                text: 'Datos ingresados.',
+                customClass: {
+                    container: 'my-swal'
+                },
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script>
     @yield('script')
 </body>
 
