@@ -6,9 +6,9 @@ use App\Models\Client;
 use App\Models\Employee;
 use App\Models\User;
 use App\Models\DocumentType;
-use Auth;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -62,7 +62,7 @@ class ClientController extends Controller
 
             }
         }
-        
+
         $document_type = DocumentType::all();
 
         return view('client.create',compact("user","document_type","page_name","page_subpage", "page_icon"));
@@ -78,11 +78,11 @@ class ClientController extends Controller
     {
         $client = Client::create([
 
-            'name' => $request->name, 
-            'lastname' => $request->lastname, 
-            'document_type_id' => $request->document_type_id, 
-            'number_document' => $request->number_document,            
-            'telephone' => $request->telephone, 
+            'name' => $request->name,
+            'lastname' => $request->lastname,
+            'document_type_id' => $request->document_type_id,
+            'number_document' => $request->number_document,
+            'telephone' => $request->telephone,
             'address' => $request->address,
 
         ]);
@@ -138,13 +138,13 @@ class ClientController extends Controller
 
     public function obtenerClient(Request $request)
     {
-        
+
         $cliente = Client::where("document_type_id",$request->tipo_documento)
                     ->where("number_document",$request->documento)
                     ->first();
-        
+
         $existe=false;
-        if (!is_null($client)) 
+        if (!is_null($cliente))
         {
             $existe=true;
         }
