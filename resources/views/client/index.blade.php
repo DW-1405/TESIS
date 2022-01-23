@@ -27,7 +27,7 @@
                             @foreach ($clients as $client)
                             
                             <tr >
-                                <td>{{ $client->name.' '.$client->lastname}}</td>
+                                <td>{{ $client->name}}</td>
                                 <td>{{ $client->telephone}}</td>
                                 <td>{{ $client->address}}</td>
                                 <td class="col-md-2">

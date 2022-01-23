@@ -79,7 +79,6 @@ class ClientController extends Controller
         $client = Client::create([
 
             'name' => $request->name,
-            'lastname' => $request->lastname,
             'document_type_id' => $request->document_type_id,
             'number_document' => $request->number_document,
             'telephone' => $request->telephone,

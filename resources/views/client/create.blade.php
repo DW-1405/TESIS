@@ -29,7 +29,7 @@
                                     <div class="input-group">
                                         <input id="number_document" class="form-control" type="text" placeholder="Enter number document" name="number_document" required>
                                         <span class="input-group-append"><a style="color:white" class="btn btn-primary" onclick="consultarDocumento()"><i class="fa fa-search"></i> <span
-                                                    id="entidad">Entidad</span></a></span>
+                                                    id="entidad">Buscar</span></a></span>
 
 
                                     </div>
@@ -39,18 +39,10 @@
 			                    <label class="control-label col-md-3" id="lblNombre">Nombre</label>
 			                  	<div class="col-md-8">
 
-			                    	<input id="name" class="form-control" type="text" placeholder="Enter names" name="name" required>
+			                    	<input id="name" class="form-control" type="text" placeholder="Enter names" name="name" required readonly>
 
 
 			                  	</div>
-			                </div>
-			                <div class="form-group row">
-				                <label class="control-label col-md-3">Apellidos</label>
-				                <div class="col-md-8">
-
-				                    <input class="form-control" type="text" placeholder="Enter lastnames" name="lastname" required>
-
-				                </div>
 			                </div>
 
 			            </div>
