@@ -1,0 +1,150 @@
+@import "/assets/css/main.css";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap");
+*,
+::after,
+::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.contenedor {
+  height: 500px;
+  background: linear-gradient(to right, var(--dark), #0045B7);
+  border-left: 1px solid var(--gray);
+  border-radius: 5px;
+  margin: 3rem 0px 0px 0px;
+}
+.contenedor .contenedor-left img {
+  
+}
+.contenedor .contenedor-left p {
+  color: var(--white);
+}
+.contenedor .contenedor-right {
+  background: var(--white);
+  border-radius: 5px;
+  border-right: 1px solid var(--gray);
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenedor .contenedor-right .form-login {
+  padding: 1rem;
+  border: 2px solid var(--border);
+}
+.contenedor .contenedor-right .form-login .control-group {
+  margin: 30px 20px 30px 20px;
+  position: relative;
+}
+.contenedor .contenedor-right .form-login .control-group input {
+  background: transparent;
+  color: #c6c6c6;
+  font-size: 16px;
+  padding: 6px 6px 6px 3px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #49454567;
+}
+.contenedor .contenedor-right .form-login .control-group input:focus {
+  outline: none;
+  color: #5e5d5d;
+}
+.contenedor .contenedor-right .form-login .control-group input:focus ~ label,
+.contenedor .contenedor-right .form-login .control-group label.valid {
+  top: -14px;
+  font-size: 12px;
+  color: var(--dark);
+}
+.contenedor .contenedor-right .form-login .control-group label {
+  position: absolute;
+  font-size: 14px;
+  top: 10px;
+  left: 5px;
+  transition: 0.5s ease-in-out all;
+  pointer-events: none;
+}
+.contenedor .contenedor-right .form-login .control-group i.fas {
+  position: absolute;
+  font-size: 14px;
+  top: 10px;
+  right: 0;
+  color: var(--danger);
+  /* display: block; */
+}
+.contenedor .contenedor-right .form-login .control-group p {
+  position: absolute;
+  font-size: 12px;
+  right: 0px;
+  color: var(--danger);
+  display: none;
+}
+.contenedor .contenedor-right .form-login .control-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.contenedor .contenedor-right .form-login .control-group .bar::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to right, var(--dark), var(--primary));
+  transition: 0.3s ease width;
+}
+.contenedor .contenedor-right .form-login .control-group input:focus ~ .bar::before,
+.contenedor .contenedor-right .form-login .control-group input:valid ~ .bar::before {
+  width: 100%;
+}
+.contenedor .contenedor-right .form-login .btn-login {
+  background: linear-gradient(to right, var(--dark), var(--primary));
+  border: none;
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px;
+  color: var(--white);
+}
+.contenedor .contenedor-right .form-login .btn-login:hover {
+  background: linear-gradient(to left, var(--dark), var(--primary));
+}
+.contenedor .contenedor-right .form-login .title {
+  margin-left: 70px;
+}
+.contenedor .contenedor-right .form-login .bar-div {
+  display: block;
+  height: 2px;
+  margin: 10px auto;
+  background: linear-gradient(to right, var(--dark), var(--primary));
+  transition: 0.3s ease width;
+}
+.contenedor .contenedor-right .form-login .checkbox {
+  font-size: 10px;
+  margin: 10px auto;
+  border: none;
+}
+.contenedor .contenedor-right .form-login .checkbox-text {
+  font-size: 14px;
+  margin: 5px 5px;
+}
+.contenedor .contenedor-right .form-login .forgor-password {
+  text-decoration: none;
+  text-decoration-line: underline;
+  font-size: 14px;
+  color: var(--black);
+  margin-left: 45px;
+}
+.contenedor .contenedor-right .form-login .forgor-password:hover {
+  color: var(--primary);
+}
+
+/*# sourceMappingURL=login.css.map */
