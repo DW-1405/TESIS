@@ -99,6 +99,7 @@
     function consultarDocumento() {
 
         var tipo_documento = $('#document_type_id option:selected').attr('description');
+        var tipo_documento_id = $('#document_type_id').val();
         var documento = $('#number_document').val();
         if (tipo_documento === "DNI") {
             if (documento.length === 8) {
@@ -116,40 +117,40 @@
             }
         }
 
-        // Consultamos nuestra BBDD
-        // $.ajax({
-        //     dataType: 'json',
-        //     type: 'post',
-        //     url: ,
-        //     data: {
-        //         '_token': $('input[name=_token]').val(),
-        //         'tipo_documento': tipo_documento,
-        //         'documento': documento,
-        //         'id': null
-        //     }
-        // }).done(function(result) {
-        //     if (result.existe) {
-        //         toastr.error('El ' + tipo_documento + ' ingresado ya se encuentra registrado para un cliente',
-        //             'Error');
-        //         clearDatosPersona(true);
-        //     } else {
-        //         if (tipo_documento === "DNI") {
-        //             if (documento.length === 8) {
-        //                 consultarAPI(tipo_documento, documento);
-        //             } else {
-        //                 toastr.error('El DNI debe de contar con 8 dígitos', 'Error');
-        //                 clearDatosPersona(false);
-        //             }
-        //         } else if (tipo_documento === "RUC") {
-        //             if (documento.length === 11) {
-        //                 consultarAPI(tipo_documento, documento);
-        //             } else {
-        //                 toastr.error('El RUC debe de contar con 11 dígitos', 'Error');
-        //                 clearDatosPersona(false);
-        //             }
-        //         }
-        //     }
-        // });
+        Consultamos nuestra BBDD
+        $.ajax({
+            dataType: 'json',
+            type: 'post',
+            url: '',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'tipo_documento': tipo_documento_id,
+                'documento': documento,
+                'id': null
+            }
+        }).done(function(result) {
+            if (result.existe) {
+                toastr.error('El ' + tipo_documento + ' ingresado ya se encuentra registrado para un cliente',
+                    'Error');
+                clearDatosPersona(true);
+            } else {
+                if (tipo_documento === "DNI") {
+                    if (documento.length === 8) {
+                        consultarAPI(tipo_documento, documento);
+                    } else {
+                        toastr.error('El DNI debe de contar con 8 dígitos', 'Error');
+                        clearDatosPersona(false);
+                    }
+                } else if (tipo_documento === "RUC") {
+                    if (documento.length === 11) {
+                        consultarAPI(tipo_documento, documento);
+                    } else {
+                        toastr.error('El RUC debe de contar con 11 dígitos', 'Error');
+                        clearDatosPersona(false);
+                    }
+                }
+            }
+        });
     }
 
     function clearDatosPersona(limpiarDocumento) {
