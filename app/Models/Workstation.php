@@ -9,6 +9,10 @@ class Workstation extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'work',
+    ];
+
     public function employees(){
 
     	return $this->hasMany('App\Models\Employee');

@@ -25,7 +25,7 @@ class CreateProductsTable extends Migration
             $table->foreign('brand_id')->references("id")->on("brands")->onDelete("cascade");
             $table->timestamps();
         });
-    }
+    }    
     /**
      * Reverse the migrations.
      *
