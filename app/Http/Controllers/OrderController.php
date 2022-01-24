@@ -35,9 +35,9 @@ class OrderController extends Controller
     public function index()
     {
         //
-        $page_name = "Orden de Compras";
+        $page_name = "Pedidos";
         $page_subpage = "Registrar orden";
-        $page_icon ="fab fa-shopify";
+        $page_icon ="icon fas fa-clipboard-list";
         $auth = Auth::user();
         $employees = Employee::all();
         foreach ($employees as $key) {
@@ -61,9 +61,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $page_name = "Compras";
+        $page_name = "Pedido";
         $page_subpage = "Registrar Compra";
-        $page_icon ="fab fa-shopify";
+        $page_icon ="icon fas fa-clipboard-list";
         $auth = Auth::user();
         $employees = Employee::all();
         foreach ($employees as $key) {

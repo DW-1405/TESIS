@@ -4,8 +4,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="options-buttons">
-            <a class="btn btn-primary" href="{{route('order.create')}}">
-                <i class="fas fa-plus"></i>  Nuevo pedido 
+            <a class="btn btn-primary" href="{{route('buy.create')}}">
+                <i class="fas fa-plus"></i>  Nueva compra
             </a>
         </div>
 
@@ -14,26 +14,28 @@
         <div class="tile">  
             <div class="tile-body">
                 <div class="table-responsive">
-                    <table class="table table-hover table-bordered" id="sampleTable">
+                    <table class="table table-hover table-bbuyed" id="sampleTable">
                     <thead  class="table-warning text-center">
                             <tr>
                                 <th>Código</th>
-                                <th>Fecha de creación</th>
+                                <th>Fecha de actualización</th>
                                 <th>Proveedor</th>
+                                <th>Estado</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
-                            @foreach ($orders as $order)
+                            @foreach ($buys as $buy)
                             
                             <tr>
-                                <td>{{ $order->id}}</td>
-                                <td>{{ $order->date}}</td>
-                                <td>{{ $order->supplier->company_name}}</td>
+                                <td>{{ $buy->id}}</td>
+                                <td>{{ $buy->updated_at}}</td>
+                                <td>{{ $buy->order->supplier->company_name}}</td>
+                                <td>{{ $buy->state}}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{route('remission', $order)}}"> 
-                                        <i class="fas fa-eye"></i>
-                                    </a>                                   
+                                    <a class="btn btn-success" href="{{route('buy.edit', $buy)}}">
+                                        <i class="fas fa-edit"></i>
+                                    </a>                                 
                                 </td>
 
                             </tr>

@@ -159,7 +159,14 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a class="treeview-item" href="{{route('order')}}"><i class="icon fab fa-shopify"></i>
+                        <a class="treeview-item" href="{{route('order')}}"><i class="icon fas fa-clipboard-list"></i>
+                            {{__('Pedidos')}}
+                        </a>
+                    </li>
+                </ul>
+                <ul class="treeview-menu">
+                    <li>
+                        <a class="treeview-item" href="{{route('buy')}}"><i class="icon fab fa-shopify"></i>
                             {{__('Compras')}}
                         </a>
                     </li>

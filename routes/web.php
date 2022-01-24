@@ -123,3 +123,12 @@ Route::get('order/create', [App\Http\Controllers\OrderController::class, 'create
 Route::post('order/store', [App\Http\Controllers\OrderController::class, 'store'])->name('order.store');
 Route::get('remission/{order}', [App\Http\Controllers\OrderController::class, 'show'])->name('remission');
 Route::get('printer/{order}', [App\Http\Controllers\OrderController::class, 'printer'])->name('printer');
+
+// -------------------------
+// ### Route Buy
+// --------------------------
+Route::get('buy/', [App\Http\Controllers\BuyController::class, 'index'])->name('buy');
+Route::get('buy/create', [App\Http\Controllers\BuyController::class, 'create'])->name('buy.create');
+Route::post('buy/store', [App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
+Route::get('buy/edit/{buy}', [App\Http\Controllers\BuyController::class, 'edit'])->name('buy.edit');
+Route::post('buy/update/{buy}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
