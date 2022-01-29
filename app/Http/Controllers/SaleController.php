@@ -187,7 +187,10 @@ class SaleController extends Controller
         $data = DB::select('select * from sale_details where sale_id  = ?', [$sale->id]);
         // return $sale;
         // return view('sale.print', compact('data', 'details', 'sale'));
-        $pdf = PDF::loadView('sale.print', compact('data', 'details', 'sale'));
+        $legends = self::obtenerLeyenda($sale);
+            $legends = json_encode($legends,true);
+            $legends = json_decode($legends,true);
+        $pdf = PDF::loadView('sale.print', compact('data', 'details','legends', 'sale'));
         return $pdf->stream('archivo.pdf');
     }
 
