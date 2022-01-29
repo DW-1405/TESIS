@@ -26,8 +26,8 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   
-    
+    {
+
         $page_name = "Inicio";
         $page_subpage = "Estadisticas";
         $page_icon ="fa fa-home";
@@ -47,9 +47,9 @@ class HomeController extends Controller
         else{
             $type_data = "Mis ventas mensuales";
             $data = DB::select('CALL monthly_sales('.$id.')');
-            
+
         }
-        
+
         return view('home', compact("user", "data","type_data","page_name","page_subpage", "page_icon"));
     }
 
@@ -59,12 +59,12 @@ class HomeController extends Controller
     //     $id = $auth->id;
     //     $mes = date("m");
     //     $data = array();
-       
+
     //     $data = DB::select('CALL monthly_sales('.$id.')');
-        
-       
+
+
     //     // return $data;
-  
+
     //     return response(json_encode($data),200)->header('Content-type', 'text/plain');
     // }
 

@@ -18,8 +18,8 @@ class CreateClientsTable extends Migration
             $table->string('name');
             $table->unsignedInteger("document_type_id");
             $table->foreign('document_type_id')->references("id")->on("document_types")->onDelete("cascade");
-            $table->unsignedDecimal('number_document', 15, 2);
-            $table->unsignedDecimal('telephone', 15, 2);
+            $table->string('number_document');
+            $table->string('telephone');
             $table->string('address');
             $table->timestamps();
         });

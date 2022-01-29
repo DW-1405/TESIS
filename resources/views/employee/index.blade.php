@@ -27,7 +27,7 @@
 		                      		<td>{{$element->email}}</td>
 		                      		<td>{{$element->user->name}}</td>
 		                      		<td>
-		                      			
+
 		                      			<a style="display: inline-flex;" class="btn btn-success flex-wrap align-content-center justify-content-center " href="{{route('employee.edit', $element)}}"><i class="fa fa-edit"></i></a>
 		                      			<a style="display: inline-flex;" class="btn btn-danger flex-wrap align-content-center justify-content-center"  href="{{route('employee.destroy', $element)}}"><i class="fa fa-trash"></i></a>
 
@@ -46,11 +46,14 @@
 @section('script')
 <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
- <script type="text/javascript"> 
+ <script type="text/javascript">
 
      $('#sampleTable').DataTable( {
-    responsive: true
+        responsive: true,
+        "language": {
+            "url": "{{asset('Spanish.json')}}"
+        },
     } );
 
- </script>	
+ </script>
 @endsection

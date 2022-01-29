@@ -21,11 +21,11 @@ class CreateProductsTable extends Migration
             $table->foreign('product_categories_id')->references("id")->on("product_categories")->onDelete("cascade");
             $table->unsignedDecimal('stock', 15, 2);
             $table->unsignedDecimal('unit_price', 15, 2);
-            $table->unsignedInteger("brands_id");
+            $table->unsignedInteger("brand_id");
             $table->foreign('brand_id')->references("id")->on("brands")->onDelete("cascade");
             $table->timestamps();
         });
-    }    
+    }
     /**
      * Reverse the migrations.
      *

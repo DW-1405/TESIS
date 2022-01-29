@@ -19,6 +19,11 @@ class CreateSalesTable extends Migration
             $table->unsignedInteger("client_id");
             $table->foreign('client_id')->references("id")->on("clients")->onDelete("cascade");
             $table->unsignedInteger("user_id");
+            $table->text('hash')->nullable();
+            $table->longText('ruta_qr')->nullable();
+            $table->longText('ruta_pdf')->nullable();
+            $table->enum('sunat',['0','1','2'])->default('0');
+            $table->date('date');
             $table->foreign('user_id')->references("id")->on("users")->onDelete("cascade");
             $table->unsignedInteger("voucher_type_id");
             $table->foreign('voucher_type_id')->references("id")->on("voucher_types")->onDelete("cascade");

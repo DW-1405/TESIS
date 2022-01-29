@@ -114,6 +114,7 @@ Route::get('sale/create', [App\Http\Controllers\SaleController::class, 'create']
 Route::post('sale/store', [App\Http\Controllers\SaleController::class, 'store'])->name('sale.store');
 Route::get('invoice/{sale}', [App\Http\Controllers\SaleController::class, 'show'])->name('invoice');
 Route::get('print/{sale}', [App\Http\Controllers\SaleController::class, 'print'])->name('print');
+Route::get('sunat/{id}', [App\Http\Controllers\SaleController::class, 'sunat'])->name('sale.sunat');
 
 // -------------------------
 // ### Route Order
@@ -132,3 +133,7 @@ Route::get('buy/create', [App\Http\Controllers\BuyController::class, 'create'])-
 Route::post('buy/store', [App\Http\Controllers\BuyController::class, 'store'])->name('buy.store');
 Route::get('buy/edit/{buy}', [App\Http\Controllers\BuyController::class, 'edit'])->name('buy.edit');
 Route::post('buy/update/{buy}', [App\Http\Controllers\BuyController::class, 'update'])->name('buy.update');
+
+Route::get('ruta', function(){
+    //return prueba();
+});

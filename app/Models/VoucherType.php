@@ -11,6 +11,7 @@ class VoucherType extends Model
 
     protected $fillable = [
         'type',
+        'code'
     ];
 
     public function sale(){

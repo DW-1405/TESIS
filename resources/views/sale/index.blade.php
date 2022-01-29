@@ -11,7 +11,7 @@
 
     </div>
     <div class="col-md-12">
-        <div class="tile">  
+        <div class="tile">
             <div class="tile-body">
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered" id="sampleTable">
@@ -28,7 +28,7 @@
                         </thead>
                         <tbody class="text-center">
                             @foreach ($sales as $sale)
-                            
+
                             <tr>
                                 <td>{{ $sale->code}}</td>
                                 <td>{{ $sale->date}}</td>
@@ -37,9 +37,15 @@
                                 <td>{{ $sale->voucher_type->type}}</td>
                                 <td>{{ $sale->total}}</td>
                                 <td>
-                                    <a class="btn btn-success" href="{{route('invoice', $sale)}}"> 
+                                    <a class="btn btn-success" href="{{route('invoice', $sale)}}">
                                         <i class="fas fa-eye"></i>
-                                    </a>                                   
+                                    </a>
+                                    @if($sale->sunat == '0')
+                                    <a class="btn btn-primary" href="#" onclick="enviarSunat({{$sale->id}})">
+                                        <i class="fa fa-send"></i>
+                                        Sunat
+                                    </a>
+                                    @endif
                                 </td>
 
                             </tr>
@@ -55,11 +61,81 @@
 @section('script')
 <script type="text/javascript" src="/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap.min.js') }}"></script>
- <script type="text/javascript"> 
+ <script>
 
-     $('#sampleTable').DataTable( {
-    responsive: true
+    @if(!empty($sunat_exito))
+        Swal.fire({
+            icon: 'success',
+            title: '{{$id_sunat}}',
+            text: '{{$descripcion_sunat}}',
+            showConfirmButton: false,
+            timer: 2500
+        })
+    @endif
+
+    @if(!empty($sunat_error))
+        Swal.fire({
+            icon: 'error',
+            title: '{{$id_sunat}}',
+            text: '{{$descripcion_sunat}}',
+            showConfirmButton: false,
+            timer: 5500
+        })
+    @endif
+
+    $('#sampleTable').DataTable( {
+        responsive: true
     } );
 
- </script>	
+    function enviarSunat(id) {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: 'btn btn-success',
+                cancelButton: 'btn btn-danger',
+            },
+            buttonsStyling: false
+        })
+
+        Swal.fire({
+            title: "Opción Enviar a Sunat",
+            text: "¿Seguro que desea enviar documento de venta a Sunat?",
+            showCancelButton: true,
+            icon: 'info',
+            confirmButtonColor: "#1ab394",
+            confirmButtonText: 'Si, Confirmar',
+            cancelButtonText: "No, Cancelar",
+            // showLoaderOnConfirm: true,
+        }).then((result) => {
+            if (result.value) {
+
+                var url = '{{ route("sale.sunat", ":id")}}';
+                url = url.replace(':id',id);
+
+                window.location.href = url
+
+                Swal.fire({
+                    title: '¡Cargando!',
+                    type: 'info',
+                    text: 'Enviando documento de venta a Sunat',
+                    showConfirmButton: false,
+                    onBeforeOpen: () => {
+                        Swal.showLoading()
+                    }
+                })
+
+            } else if (
+                /* Read more about handling dismissals below */
+                result.dismiss === Swal.DismissReason.cancel
+            ) {
+                swalWithBootstrapButtons.fire(
+                    'Cancelado',
+                    'La Solicitud se ha cancelado.',
+                    'error'
+                )
+            }
+        })
+
+    }
+
+ </script>
 @endsection
