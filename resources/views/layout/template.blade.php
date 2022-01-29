@@ -19,7 +19,8 @@
             <p>"Comercial<span> Alex"</span></p>
         </a>
         <!-- Sidebar toggle button-->
-
+        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Slider">
+        </a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
 
@@ -206,16 +207,38 @@
 
             @endif
 
+            @if ($user->workstation->work == "ADMINISTRADOR" || $user->workstation->work == "VENDEDOR")
+
             <!-- reportes-->
 
-            <li>
-                <a class="app-menu__item" href="#">
+            <li class="treeview">
+                <a class="app-menu__item" href="#" data-toggle="treeview">
                     <i class="app-menu__icon far fa-file-alt"></i>
                     <span class="app-menu__label">
-                        Reportes
+                        {{__('Reportes')}}
                     </span>
+                    <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a class="treeview-item" href="{{route('ventas.fecha')}}"><i class="icon fas fa-boxes"></i>
+                        {{__('Ventas')}}
+                        </a>
+                        @if ($user->workstation->work == "ADMINISTRADOR")
+                        <a class="treeview-item" href="{{route('category')}}"><i class=" icon fas fa-clipboard-list"></i>
+                            {{__('Almacén')}}
+                        </a>
+                        @endif
+                        @if ($user->workstation->work == "ADMINISTRADOR")
+                        <a class="treeview-item" href="{{route('brand')}}"><i class=" icon fas fa-clipboard-list"></i>
+                            {{__('Compras')}}
+                        </a>
+                        @endif
+                    </li>
+                </ul>
             </li>
+
+            @endif
         </ul>
     </aside>
     <main class="app-content">
