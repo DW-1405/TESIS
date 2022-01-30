@@ -64,7 +64,7 @@
         @csrf
         <div class="text-center">
             <div class="form-group">
-                <button type="submit" class="btn btn-success btn-sm">Generar PDF</button>
+                <button type="submit" class="btn btn-success btn-sm">Vista previa</button>
             </div>
         </div>
         <div class="form-group">

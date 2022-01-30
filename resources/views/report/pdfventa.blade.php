@@ -12,7 +12,7 @@
             
         }
         .invoice{
-            padding: 50px;
+            margin-top: 50px;
             line-height: 1.5;
         }
         }
@@ -49,18 +49,21 @@
         <div class="invoice-title" style="margin-top: -20px;">               
                 
                 <h2 >{{__(' REPORTE DE VENTAS')}}</h2>
-				<h3>del  {{$fi}} al {{$ff}} </h3>
-        _________________________________________________________________________________             
+				<h3>del  {{$fi}} al {{$ff}} </h3>   
+                   
         </div>
+        _____________________________________________________________________________
         <div class="invoice-info" style="margin-top:10px  ">  
                 <b>FECHA DE EMISION : {{\Carbon\Carbon::today('America/Lima')->format('d/m/Y')}} <br>
                 <b class="text-uppercase">GENERADO POR : {{$user->name}}</b><br>   
                 <span>TOTAL DE INGRESOS: <strong>S/. {{ number_format($ventas->sum('total'),2) }}</strong> <b> </b></span> 
         </div>
-        _________________________________________________________________________________
+        
         
     </div>
-    <div style="margin-left: 290px; margin-top:-50px;  line-height: 2;  " >
+    _____________________________________________________________________________
+    <div style="margin-left: 70px;   line-height: 2;  " >
+    
         <table class="table" >
             <thead >
                 <tr> 
@@ -78,12 +81,13 @@
                 </tr>
                 @endforeach                
             </tbody>
-        </table>       
-    </div>
-    _________________________________________________________________________________
-
-    <div style="width:900px; margin-left:180px; margin-top:10px; margin-bottom:10px; " >
-            <canvas id="venta_M" height="80" ></canvas>
+        </table> 
+           
+    </div>       
+    _____________________________________________________________________________  
+    <div style="width:650px; margin-left: 40px; margin-top:50px; margin-bottom:20px; " >
+        Gráfico de ventas     
+        <canvas id="venta_M" height="100" ></canvas>
     </div> 
     **Interpretación: Las ventas entre las fechas del reporte, alcanzó un total de S/. {{ number_format($ventas->sum('total'),2) }}
     </body>        
