@@ -7,6 +7,9 @@ use Carbon\Carbon;
 use Auth;
 use App\Models\Employee;
 use App\Models\Sale;
+use Illuminate\Support\Facades\DB;
+use Exception;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ReportController extends Controller
 {
@@ -17,7 +20,7 @@ class ReportController extends Controller
 
     public function venta_fecha($fi=null,$ff=null){
 
-        $page_name = "Reporte";
+        $page_name = "Reporte Ventas";
         $page_subpage = "Reporte de ventas";
         $page_icon ="icon fas fa-clipboard-list";
         $auth = Auth::user();
@@ -89,10 +92,13 @@ class ReportController extends Controller
             }
         }
 
-        $fi = $request->fi. ' 00:00:00';
-        $ff = $request->ff. ' 23:59:59';
+        $fi = $request->fi;
+        $ff = $request->ff;
         $ventas = Sale::whereBetween('date', [$fi, $ff])->get();
-        return view('report.pdfventa', compact('user', "page_name","page_subpage", "page_icon",'ventas'));
+
+        // $pdf = PDF::loadView('report.pdfventa', compact('user', "page_name","page_subpage", "page_icon",'ventas','fi','ff'));
+        // return $pdf->stream('archivo.pdf');
+        return view('report.pdfventa', compact('user',"page_name","page_subpage", "page_icon",'ventas','fi','ff'));
     }
 
     public function generarcPDF(Request $request){

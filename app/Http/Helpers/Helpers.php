@@ -1,4 +1,6 @@
 <?php
+
+use App\Models\Product;
 //ENVIAR A  SUNAT
 if (!function_exists('enviarComprobanteapi')) {
     function enviarComprobanteapi($comprobante)
@@ -116,4 +118,12 @@ if (!function_exists('generarXmlapi')) {
             return $resultado;
         }
     }
+}
+
+//LLAMADA A NOTIFICACIONES
+function notificacion()
+{
+    return Product::where('stock', '<=', 10)
+    ->orderBy('id', 'desc')
+    ->get();
 }

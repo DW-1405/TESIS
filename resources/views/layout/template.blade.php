@@ -23,7 +23,19 @@
         </a>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
-
+            {{--Reposición --}}
+            <li class="dropdown">
+                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
+                        class="fa fa-user fa-lg"> </i></a>
+                <ul class="dropdown-menu settings-menu dropdown-menu-right">
+                    @foreach(notificacion() as $noti)
+                        <a href="{{route('order.create')}}">
+                        <div class="mail-contnet">                                            
+                            <h5 class="text-danger">{{$noti->name}}<h5>
+                        <span class="mail-desc">Cuenta con {{$noti->stock}} de stock</span> 
+                    @endforeach
+                </ul>
+            </li>
             {{-- User Menu --}}
             <li class="dropdown">
                 <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
