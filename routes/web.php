@@ -146,9 +146,9 @@ Route::get('/almacen', 'ReportController@almacen')->name('almacen.report');
 Route::get('/venta_fecha', [App\Http\Controllers\ReportController::class, 'venta_fecha'])->name('ventas.fecha');
 Route::post('/venta_resultados', [App\Http\Controllers\ReportController::class, 'venta_resultados'])->name('ventas.resultados');
 
-Route::get('/compra_fecha', 'ReportController@compra_fecha')->name('compras.fecha');
-Route::post('/compra_resultados', 'ReportController@compra_resultados')->name('compras.resultados');
+Route::get('/compra_fecha', [App\Http\Controllers\ReportController::class, 'compra_fecha'])->name('compras.fecha');
+Route::post('/compra_resultados', [App\Http\Controllers\ReportController::class, 'compra_resultados'])->name('compras.resultados');
 
 Route::post('/ventapdf', [App\Http\Controllers\ReportController::class, 'generarvPDF'])->name('ventas.pdf');
-Route::post('/comprapdf', 'ReportController@generarcPDF')->name('compras.pdf');
-Route::get('/almacenpdf', 'ReportController@almacenPDF')->name('almacen.pdf');
+Route::post('/comprapdf', [App\Http\Controllers\ReportController::class, 'generarcPDF'])->name('compras.pdf');
+Route::get('/almacenpdf', [App\Http\Controllers\ReportController::class, 'almacenPDF'])->name('almacen.pdf');

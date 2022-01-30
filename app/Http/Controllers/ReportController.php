@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
 use App\Models\Employee;
+use App\Models\Supplier;
 use App\Models\Sale;
+use App\Models\Buy;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -58,14 +60,42 @@ class ReportController extends Controller
     }
 
     public function compra_fecha($fi=null,$ff=null){
-        $compras = Compra::whereDate('compra_date', Carbon::today('America/Lima'))->get();
-        return view('admin.reporte.compras_fecha', compact('compras','fi','ff'));
+
+        $page_name = "Reporte Compras";
+        $page_subpage = "Reporte de compras";
+        $page_icon ="icon fas fa-clipboard-list";
+        $auth = Auth::user();
+        $employees = Employee::all();
+        foreach ($employees as $key) {
+            if ($key->id == $auth->employee_id) {
+                $user = $key;
+
+            }
+        }
+
+        $suppliers = Supplier::all();
+        $compras = Buy::whereDate('date', Carbon::today('America/Lima'))->get();
+        return view('report.compras', compact('user',"suppliers", "page_name","page_subpage", "page_icon",'compras','fi','ff'));
     }
     public function compra_resultados(Request $request){
+
+        $page_name = "Reporte Compras";
+        $page_subpage = "Reporte de compras";
+        $page_icon ="icon fas fa-clipboard-list";
+        $auth = Auth::user();
+        $employees = Employee::all();
+        foreach ($employees as $key) {
+            if ($key->id == $auth->employee_id) {
+                $user = $key;
+
+            }
+        }
+
+        $suppliers = Supplier::all();
         $fi = $request->fecha_ini. ' 00:00:00';
         $ff = $request->fecha_fin. ' 23:59:59';
-        $compras = Compra::whereBetween('compra_date', [$fi, $ff])->get();
-        return view('admin.reporte.compras_fecha', compact('compras','fi','ff'));
+        $compras = Buy::whereBetween('date', [$fi, $ff])->get();
+        return view('report.compras', compact('user', "page_name","suppliers","page_subpage", "page_icon",'compras','fi','ff'));
 
     }
 
@@ -102,10 +132,25 @@ class ReportController extends Controller
     }
 
     public function generarcPDF(Request $request){
-        $fi = $request->fi. ' 00:00:00';
-        $ff = $request->ff. ' 23:59:59';
-        $compras = Compra::whereBetween('compra_date', [$fi, $ff])->get();
-        return view('admin.reporte.pdfcompra', compact('compras'));
+
+        $page_name = "Reporte Compras";
+        $page_subpage = "Reporte de compras";
+        $page_icon ="icon fas fa-clipboard-list";
+        $auth = Auth::user();
+        $employees = Employee::all();
+        foreach ($employees as $key) {
+            if ($key->id == $auth->employee_id) {
+                $user = $key;
+
+            }
+        }
+
+        $fi = $request->fi;
+        $ff = $request->ff;
+        
+        $suppliers = Supplier::all();
+        $compras = Buy::whereBetween('date', [$fi, $ff])->get();
+        return view('report.pdfcompras', compact('user',"suppliers","page_name","page_subpage", "page_icon",'compras','fi','ff'));
     }
 
     public function almacenPDF(){

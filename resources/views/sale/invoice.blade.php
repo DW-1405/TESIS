@@ -48,7 +48,7 @@
                                                 <td>{{$item->quantity}}</td>
                                                 <td>{{$item->product->name}}</td>
                                                 <td>{{$item->product->description}}</td>
-                                                <td>${{$item->amount}}</td>
+                                                <td>S/. {{$item->amount}}</td>
                                             </tr>
                                         @endif
                                     @endforeach

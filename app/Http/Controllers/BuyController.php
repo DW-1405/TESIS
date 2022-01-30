@@ -69,7 +69,7 @@ class BuyController extends Controller
             }
         }
 
-        $orders = DB::select("SELECT DISTINCT orders.id FROM orders inner join buys WHERE orders.id != buys.order_id order by orders.id ");
+        $orders = DB::select("SELECT DISTINCT id FROM orders order by id ");
 
 
         return view('buy.makeBuy', compact('user', 'orders',"page_name","page_subpage", "page_icon"));

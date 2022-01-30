@@ -242,7 +242,7 @@
                         </a>
                         @endif
                         @if ($user->workstation->work == "ADMINISTRADOR")
-                        <a class="treeview-item" href="{{route('brand')}}"><i class=" icon fas fa-clipboard-list"></i>
+                        <a class="treeview-item" href="{{route('compras.fecha')}}"><i class=" icon fas fa-clipboard-list"></i>
                             {{__('Compras')}}
                         </a>
                         @endif
