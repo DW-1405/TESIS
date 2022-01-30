@@ -233,11 +233,11 @@
                 </a>
                 <ul class="treeview-menu">
                     <li>
-                        <a class="treeview-item" href="{{route('ventas.fecha')}}"><i class="icon fas fa-boxes"></i>
+                        <a class="treeview-item" href="{{route('ventas.fecha')}}"><i class="icon fas fa-clipboard-list"></i>
                         {{__('Ventas')}}
                         </a>
                         @if ($user->workstation->work == "ADMINISTRADOR")
-                        <a class="treeview-item" href="{{route('category')}}"><i class=" icon fas fa-clipboard-list"></i>
+                        <a class="treeview-item" href="{{route('almacen.report')}}"><i class=" icon fas fa-clipboard-list"></i>
                             {{__('Almacén')}}
                         </a>
                         @endif

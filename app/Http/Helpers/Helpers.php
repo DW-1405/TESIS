@@ -123,7 +123,7 @@ if (!function_exists('generarXmlapi')) {
 //LLAMADA A NOTIFICACIONES
 function notificacion()
 {
-    return Product::where('stock', '<=', 10)
+    return Product::where('stock', '<=', 5)
     ->orderBy('id', 'desc')
     ->get();
 }

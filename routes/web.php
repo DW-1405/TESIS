@@ -141,7 +141,7 @@ Route::get('ruta', function(){
 // -------------------------
 // ### Route Report
 // --------------------------
-Route::get('/almacen', 'ReportController@almacen')->name('almacen.report');
+Route::get('/almacen', [App\Http\Controllers\ReportController::class, 'almacen'])->name('almacen.report');
 
 Route::get('/venta_fecha', [App\Http\Controllers\ReportController::class, 'venta_fecha'])->name('ventas.fecha');
 Route::post('/venta_resultados', [App\Http\Controllers\ReportController::class, 'venta_resultados'])->name('ventas.resultados');
