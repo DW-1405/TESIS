@@ -151,4 +151,4 @@ Route::post('/compra_resultados', [App\Http\Controllers\ReportController::class,
 
 Route::post('/ventapdf', [App\Http\Controllers\ReportController::class, 'generarvPDF'])->name('ventas.pdf');
 Route::post('/comprapdf', [App\Http\Controllers\ReportController::class, 'generarcPDF'])->name('compras.pdf');
-Route::get('/almacenpdf', [App\Http\Controllers\ReportController::class, 'almacenPDF'])->name('almacen.pdf');
+Route::post('/almacenpdf', [App\Http\Controllers\ReportController::class, 'almacenPDF'])->name('almacen.pdf');

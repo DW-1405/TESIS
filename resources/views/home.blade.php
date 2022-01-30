@@ -56,9 +56,12 @@
             xAxes: [{
                 gridLines: {
                     display: true,
-                }
+                },
+                ticks: {
+	                beginAtZero:false
+	            },
             }]
-        },
+        },       
         legend: {
             position: 'bottom',
             labels: {

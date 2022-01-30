@@ -8,12 +8,12 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead  class="table-warning text-center">
                             <tr>
-                                <th>Id</th>
+                                <th>Código</th>
                                 <th>Fecha</th>
                                 <th style="width:50px;">Acciones</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                                 @foreach ($compras as $compra)
                                 <tr>                                        
                                     <td>{{$compra->id}}</td>

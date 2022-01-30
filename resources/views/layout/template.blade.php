@@ -25,16 +25,20 @@
         <ul class="app-nav">
             {{--Reposición --}}
             <li class="dropdown">
-                <a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i
-                        class="fa fa-user fa-lg"> </i></a>
-                <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    @foreach(notificacion() as $noti)
-                        <a href="{{route('order.create')}}">
-                        <div class="mail-contnet">                                            
-                            <h5 class="text-danger">{{$noti->name}}<h5>
-                        <span class="mail-desc">Cuenta con {{$noti->stock}} de stock</span> 
-                    @endforeach
-                </ul>
+                <a class="app-nav__item" href="#" data-toggle="dropdown" >
+                    <i class="fa fa-bell fa-lg" aria-hidden="true"></i></a>
+                    <ul class="dropdown-menu settings-menu">
+                        <a class="dropdown-item" style="color:red"><strong>PRODUCTOS CON STOCK MÍNIMO</strong> </a>
+                        @foreach(notificacion() as $noti)
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <a class="dropdown-item" style="color:orange"><i
+                                    class="fa fa-exclamation-triangle"></i> {{$noti->name}}</a>
+                            <a class="dropdown-item" href="{{route('order.create')}}">{{$noti->stock}} unidades en stock</a>
+                        </li>
+                        @endforeach
+                    </ul>             
+                </a>   
             </li>
             {{-- User Menu --}}
             <li class="dropdown">

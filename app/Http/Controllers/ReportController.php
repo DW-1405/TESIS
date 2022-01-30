@@ -180,11 +180,11 @@ class ReportController extends Controller
             }
         }
 
-        $productosv=DB::select('SELECT sum(dv.cantidad) as cantidad, p.nombre as nombre , p.id as id from productos p 
-        inner join detalle_ventas dv on p.id=dv.producto_id 
-        inner join ventas v on dv.venta_id=v.id where v.estado="VALIDO" 
-        and year(v.venta_date)=year(curdate()) 
-        group by p.nombre, p.id order by sum(dv.cantidad) desc limit 5');
-        return view('admin.reporte.pdfalmacen',compact('productosv'));
+        $productosv=DB::select('SELECT sum(dv.quantity) as cantidad, p.name as nombre , p.id as id from products p 
+        inner join sale_details dv on p.id=dv.product_id 
+        inner join sales v on dv.sale_id=v.id 
+        and year(v.date)=year(curdate()) 
+        group by p.name, p.id order by sum(dv.quantity) desc limit 5');
+        return view('report.pdfalmacen',compact('user',"page_name","page_subpage", "page_icon",'productosv'));
     }
 }

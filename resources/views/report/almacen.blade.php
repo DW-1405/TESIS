@@ -16,24 +16,30 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                         <thead  class="table-warning text-center">
                             <tr>
-                                <th>#</th>
-                                <th>Id</th>
-                                <th>Nombre</th>
+                                <th>Código</th>
+                                <th>Producto</th>
                                 <th>Cantidad</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                                 @foreach ($productosv as $prod)
-                                <tr>
-                                    <td>°</td>                                        
+                                <tr>                       
                                     <td>{{$prod->id}}</td>
                                     <td>{{$prod->nombre}}</td>
                                     <td>{{$prod->cantidad}}</td>
                                 </tr>
-                                @endforeach     
+                                @endforeach   
                         </tbody>
                         </tbody>
+                        
                     </table>
+                    <form action="{{route('almacen.pdf')}}" method="POST">
+                    @csrf
+                    <div class="text-center">
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-sm">Vista previa</button>
+                        </div>
+                    </div>        
                 </div>
             </div>
         </div>
