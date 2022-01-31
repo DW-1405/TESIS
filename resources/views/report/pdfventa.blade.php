@@ -76,7 +76,7 @@
                 @foreach ($ventas as $item)
                 <tr>                    
 					<td>{{$item->id}}</td>
-                    <td>{{\Carbon\Carbon::parse($item->date)->format('d M y h:i a')}}</td>
+                    <td>{{\Carbon\Carbon::parse($item->date)->format('d M Y ')}}</td>
                     <td>{{$item->total}}</td>
                 </tr>
                 @endforeach                

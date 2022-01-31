@@ -17,7 +17,6 @@
                     <table class="table table-hover table-bordered" id="sampleTable">
                     <thead  class="table-warning text-center">
                             <tr>
-                                <th>Código</th>
                                 <th>Fecha</th>
                                 <th>Cliente</th>
                                 <th>Vendedor</th>
@@ -30,7 +29,6 @@
                             @foreach ($sales as $sale)
 
                             <tr>
-                                <td>{{ $sale->code}}</td>
                                 <td>{{ $sale->date}}</td>
                                 <td>{{ $sale->client->name.' '. $sale->client->lastname}}</td>
                                 <td>{{ $sale->user->name}}</td>

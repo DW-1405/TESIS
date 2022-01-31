@@ -18,7 +18,7 @@
                                 @foreach ($ventas as $venta)
                                 <tr>                                        
                                     <td>{{$venta->id}}</td>
-                                    <td>{{\Carbon\Carbon::parse($venta->date)->format('d M y h:i a')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($venta->date)->format('d M Y')}}</td>
                                     <td>{{$venta->total}}</td>
                                     <td class="text-center">
                                         <a href="{{route('print', $venta)}}" class="text-inverse p-r-10" data-toggle="tooltip" title="Imprimir"><i class="fa fa-print"></i></a>
