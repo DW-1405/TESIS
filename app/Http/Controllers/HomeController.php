@@ -53,6 +53,23 @@ class HomeController extends Controller
         return view('home', compact("user", "data","type_data","page_name","page_subpage", "page_icon"));
     }
 
+    public function ayuda()
+    {
+
+        $page_name = "Ayuda";
+        $page_subpage = "Ayuda en linea";
+        $page_icon ="fa fa-info";
+        $auth = Auth::user();
+        $employees = Employee::all();
+        foreach ($employees as $key) {
+            if ($key->id == $auth->employee_id) {
+                $user = $key;
+            }
+        }
+       
+        return view('ayuda', compact("user", "page_name","page_subpage", "page_icon"));
+    }
+
     // public function chart(Request $request)
     // {
     //     $auth = Auth::user();

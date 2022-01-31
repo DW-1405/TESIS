@@ -22,6 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/ayuda', [App\Http\Controllers\HomeController::class, 'ayuda'])->name('ayuda');
 
 //Parametro
 Route::get('parametro/getApiruc/{ruc}', [ParametroController::class,'apiRuc'])->name('getApiruc');
@@ -152,3 +153,4 @@ Route::post('/compra_resultados', [App\Http\Controllers\ReportController::class,
 Route::post('/ventapdf', [App\Http\Controllers\ReportController::class, 'generarvPDF'])->name('ventas.pdf');
 Route::post('/comprapdf', [App\Http\Controllers\ReportController::class, 'generarcPDF'])->name('compras.pdf');
 Route::post('/almacenpdf', [App\Http\Controllers\ReportController::class, 'almacenPDF'])->name('almacen.pdf');
+

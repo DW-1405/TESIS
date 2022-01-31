@@ -255,6 +255,16 @@
             </li>
 
             @endif
+
+            <li>
+                <a class="app-menu__item " href="{{ route('ayuda') }}">
+                    <i class="app-menu__icon fa fa-info-circle"></i>
+                    <span class="app-menu__label">
+                        {{__('Ayuda')}}
+                    </span>
+                </a>
+            </li>
+
         </ul>
     </aside>
     <main class="app-content">

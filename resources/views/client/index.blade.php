@@ -20,7 +20,6 @@
                                 <th>Cliente</th>
                                 <th>Celular</th>
                                 <th>Dirección</th>
-                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody class="text-center">
@@ -29,20 +28,7 @@
                             <tr >
                                 <td>{{ $client->name}}</td>
                                 <td>{{ $client->telephone}}</td>
-                                <td>{{ $client->address}}</td>
-                                <td class="col-md-2">
-                                    <a class="btn btn-success" {{-- href="{{route('client.show', $client)}} "--}}>
-                                        <i class="fas fa-eye"></i>
-                                    </a>
-                                    @if ($user->workstation->work == "ADMINISTRATOR")
-                                    <form style="display: inline;" action="{{route('client.destroy', $client)}}" method="POST">
-                                        @csrf
-                                        <input name="_method" type="hidden" value="DELETE">
-                                        <button type="submit" value="" class="btn btn-danger"><i class="fas fa-trash"></i></button>
-                                    </form>
-                                    @endif
-                                </td>
-
+                                <td>{{ $client->address}}</td> 
                             </tr>
                             
                             @endforeach
