@@ -25,10 +25,8 @@
     <div class="container">
 
         <div class="row contenedor">
-            <div class="col-7 d-flex justify-content-center contenedor-left">
-                <img class="d-block"  src="/img/com-alex.png" alt="welcome Illustration">
-            </div>
-            <div class="col-5 contenedor-right ">
+            
+            <div class="col-12 contenedor-right ">
                 @yield('content')
             </div>
 

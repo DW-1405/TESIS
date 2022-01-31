@@ -34,7 +34,7 @@
                         <li>
                             <a class="dropdown-item" style="color:orange"><i
                                     class="fa fa-exclamation-triangle"></i> {{$noti->name}}</a>
-                            <a class="dropdown-item" href="{{route('order.create')}}">{{$noti->stock}} unidades en stock</a>
+                            <a class="dropdown-item" href="{{route('order.create')}}">{{$noti->stock}} unidades stock</a>
                         </li>
                         @endforeach
                     </ul>             
