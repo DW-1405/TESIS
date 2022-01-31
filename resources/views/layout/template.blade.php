@@ -95,14 +95,14 @@
             @if ($user->workstation->work == "ADMINISTRADOR")
             <!-- usuarios -->
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon fa fa-users"></i>
                     <span class="app-menu__label">
                         {{__('Personal')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{ route('employee') }}"><i class="icon fa fa-user"></i>
                             {{__('Empleados')}}
@@ -120,14 +120,14 @@
             @if ($user->workstation->work == "ADMINISTRADOR" || $user->workstation->work == "VENDEDOR")
             <!-- clientes -->
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon fa fa-users"></i>
                     <span class="app-menu__label">
                         {{__('Personas Externas')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{ route('client') }}"><i class="icon fa fa-user"></i>
                             {{__('Clientes')}}
@@ -146,14 +146,14 @@
             <!-- ventas -->
 
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon fa fa-user-tag"></i>
                     <span class="app-menu__label">
                         {{__('Venta')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{route('sale')}}"><i class="icon fab fa-shopify"></i>
                             {{__('Ventas')}}
@@ -167,21 +167,21 @@
             <!-- compras -->
 
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon fa fa-shopping-cart"></i>
                     <span class="app-menu__label">
                         {{__('Compra')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{route('order')}}"><i class="icon fas fa-clipboard-list"></i>
                             {{__('Pedidos')}}
                         </a>
                     </li>
                 </ul>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{route('buy')}}"><i class="icon fab fa-shopify"></i>
                             {{__('Compras')}}
@@ -195,14 +195,14 @@
 
             <!-- almacen -->
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon fas fa-warehouse"></i>
                     <span class="app-menu__label">
                         {{__('Almacén')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{route('product')}}"><i class="icon fas fa-boxes"></i>
                         {{__('Productos')}}
@@ -228,14 +228,14 @@
             <!-- reportes-->
 
             <li class="treeview">
-                <a class="app-menu__item" href="#" data-toggle="treeview">
+                <a class="app-menu__item col none" href="#" data-toggle="treeview">
                     <i class="app-menu__icon far fa-file-alt"></i>
                     <span class="app-menu__label">
                         {{__('Reportes')}}
                     </span>
                     <i class="treeview-indicator fa fa-angle-right"></i>
                 </a>
-                <ul class="treeview-menu">
+                <ul class="treeview-menu col none">
                     <li>
                         <a class="treeview-item" href="{{route('ventas.fecha')}}"><i class="icon fas fa-clipboard-list"></i>
                         {{__('Ventas')}}
