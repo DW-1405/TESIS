@@ -12,6 +12,8 @@ use App\Models\ProductCategory;
 use App\Models\VoucherType;
 use App\Models\Client;
 use App\Models\User;
+use Carbon\Carbon;
+use App\Models\Tiempo;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -67,6 +69,8 @@ class SaleController extends Controller
      */
     public function create()
     {
+        
+
         $page_name = "Ventas";
         $page_subpage = "Registrar venta";
         $page_icon ="fab fa-shopify";
@@ -79,10 +83,18 @@ class SaleController extends Controller
             }
         }
 
+        $tiempo = Carbon::now()->format('s.v');
+        $cuenta = Tiempo::findOrFail(1);
+        $cuenta -> tiempo_inicio = $tiempo;
+        $cuenta -> save();
+
         $clients = Client::all();
         $vouchers = VoucherType::all();
         $categories = ProductCategory::all();
         $products = Product::all();
+
+        
+        
         return view('sale.makeSale', compact('user', 'products', 'categories', 'vouchers', 'clients',"page_name","page_subpage", "page_icon"));
     }
 
@@ -95,6 +107,9 @@ class SaleController extends Controller
     public function store(Request $request)
     {
         //
+
+       
+        
         $products = $request->list_products;
         $quantities = $request->list_quantity;
 
@@ -135,6 +150,13 @@ class SaleController extends Controller
                 'amount' => (Product::find($products[$i])->unit_price * $quantities[$i])
             ]);
         }
+
+         
+        $tiempo = Carbon::now()->format('s.v');
+        $cuenta = Tiempo::findOrFail(1);
+        $cuenta -> tiempo_final = $tiempo;
+        $cuenta -> save(); 
+
         return redirect()->route('invoice', ['sale' => $sale]);
 
     }

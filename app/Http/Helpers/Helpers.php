@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\Product;
+use App\Models\Tiempo;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 //ENVIAR A  SUNAT
 if (!function_exists('enviarComprobanteapi')) {
     function enviarComprobanteapi($comprobante)
@@ -125,5 +128,11 @@ function notificacion()
 {
     return Product::where('stock', '<=', 5)
     ->orderBy('id', 'desc')
+    ->get();
+}
+
+function notitiempo()
+{
+    return Tiempo::select(DB::raw("(tiempo_final - tiempo_inicio) as Resta"))
     ->get();
 }
