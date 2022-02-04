@@ -131,8 +131,14 @@ function notificacion()
     ->get();
 }
 
-function notitiempo()
+function notitiempoV()
 {
-    return Tiempo::select(DB::raw("(tiempo_final - tiempo_inicio) as Resta"))
-    ->get();
+    return DB::select('select (tiempo_final - tiempo_inicio) as RestaV from tiempos where id  = 1');
+       
+}
+
+function notitiempoR()
+{
+    return DB::select('select (tiempo_final - tiempo_inicio) as RestaR from tiempos where id  = 2');
+
 }

@@ -9,6 +9,7 @@ use App\Models\Employee;
 use App\Models\Supplier;
 use App\Models\Sale;
 use App\Models\Buy;
+use App\Models\Tiempo;
 use Illuminate\Support\Facades\DB;
 use Exception;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -34,6 +35,11 @@ class ReportController extends Controller
             }
         }
         
+        $tiempo = Carbon::now()->format('s.v');
+        $cuenta = Tiempo::findOrFail(2);
+        $cuenta -> tiempo_inicio = $tiempo;
+        $cuenta -> save();
+
         $ventas = Sale::whereDate('date', Carbon::today('America/Lima'))->get();
         return view('report.ventas', compact('user', "page_name","page_subpage", "page_icon",'ventas','fi','ff'));
     }
@@ -134,6 +140,11 @@ class ReportController extends Controller
 
             }
         }
+
+        $tiempo = Carbon::now()->format('s.v');
+        $cuenta = Tiempo::findOrFail(2);
+        $cuenta -> tiempo_final = $tiempo;
+        $cuenta -> save(); 
 
         $fi = $request->fi;
         $ff = $request->ff;

@@ -37,11 +37,19 @@
                             <a class="dropdown-item" href="{{route('order.create')}}">{{$noti->stock}} unidades stock</a>
                         </li>
                         @endforeach
-                        @foreach(notitiempo() as $notitim)
+                        @foreach(notitiempoV() as $notiV)
                         <div class="dropdown-divider"></div>
                         <li>
                             <a class="dropdown-item"><i
-                                    class="fa fa-exclamation-triangle"></i> {{$notitim->Resta}}</a>
+                                    class="fa fa-exclamation-triangle"></i> Tiempo de Venta: {{$notiV->RestaV}}</a>
+                        </li>
+                        </li>
+                        @endforeach
+                        @foreach(notitiempoR() as $notitim)
+                        <div class="dropdown-divider"></div>
+                        <li>
+                            <a class="dropdown-item"><i
+                                    class="fa fa-exclamation-triangle"></i> Tiempo de Reporte: {{$notitim->RestaR}}</a>
                         </li>
                         @endforeach
                     </ul>             
